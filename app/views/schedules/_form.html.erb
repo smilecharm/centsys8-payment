@@ -1,0 +1,50 @@
+<%= form_with(model: schedule) do |form| %>
+  <% if schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+        <% schedule.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td><%= form.label :userID, :size=> "2" %></td>
+      <td>
+      <%# <%= form.text_field :user_id, :size=> "2" %>
+      <%= form.text_field :user_id, readonly: true, :size=> "2", :style => 'text-align: center' %>
+      <!-- 이상하게 disabled하면 데이타가 넘어가지 않는다. --> 
+      </td>
+
+      <td><%= form.label :name, :size=> "3" %></td>
+      <td>
+      <%# <%= form.text_field :name, :size=> "3" %>
+      
+      <%= form.text_field :name, readonly: true, :size=> "3" %>
+      </td>
+
+      <td><%= form.label :client %></td>
+      <td><%#= form.text_field :client %><%= form.select("client", Client.all.pluck(:name)) %></td>
+
+      <td><%= form.label :date %></td>
+      <td><%= form.text_field :date, :size=> "6" %></td>
+
+      <td><%= form.label :time %></td>
+      <td><%= form.text_field :time, :size=> "4" %></td>
+      
+      <td><%= form.label :ref %></td>
+      <td><%= form.text_field :ref %></td>
+
+      <td><%= form.submit %></td>
+    </tr>
+
+  </table>
+
+  <div class="actions">
+    
+  </div>
+<% end %>

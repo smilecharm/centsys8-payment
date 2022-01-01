@@ -1,0 +1,24 @@
+<h2 align="center"><%= link_to '희망찬 센터관리 시스템', '/schedules' %></h2>
+<div class="flex center">
+  <table style="width: 99%" align="center">
+    <tr>
+      <td width="90"><%= link_to '접수&고객관리', '/clients' %></td>
+      <td>|</td>
+      <td width="120"><%= link_to '일정소통&치료계획', '/schedules' %></td>
+      <td>|</td>
+      <td width="70"><%= link_to '결제&급여', '/payments' %></td>
+      <td>|</td>
+      <td width="120"><%= link_to '등록세팅&자료실', '/profiles' %></td>
+      <td>|</td>
+      <td width="120"><%= link_to '개발보드', '/boards' %></td>
+    </tr>
+  </table>
+<hr>
+<% if user_signed_in? %>
+  <p align="right">
+    사용자:<%= current_user.username %>(IDno:<%= current_user.id %>)|
+    <a href="/users/sign_out" data-method="delete">LogOut</a>
+  </p>
+<% end %>
+
+
