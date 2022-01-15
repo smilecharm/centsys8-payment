@@ -1,0 +1,32 @@
+<%= form_with(model: payment) do |form| %>
+  <table>
+    <tr>
+      <td><%= form.label :client %></td>
+      <td><%= form.text_field :client %></td>
+
+      <td><%= form.label :yearmonth %></td>
+      <td><%= form.text_field :yearmonth %></td>
+
+      <td><%= form.label :payamount %></td>
+      <td><%= form.text_field :payamount %></td>
+
+    </tr>
+    <tr>
+      <td><%= form.label :date %></td>
+      <td><%= form.text_field :date %></td>
+
+      <td><%= form.label :method %></td>
+      <td><%= form.text_field :method %></td>
+
+      <td><%= form.label :memo %></td>
+      <td><%= form.text_field :memo %></td>
+    </tr>
+    <tr>
+      <td><%= form.label :ref %></td>
+      <td colspan="4"><%= form.text_field :ref, :size=> "80" %></td>
+
+      <td align="right"><%= form.submit "결제 저장" %></td>
+    </tr>
+  </table>
+<% end %>
+<hr>

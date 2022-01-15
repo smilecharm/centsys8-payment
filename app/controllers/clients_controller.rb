@@ -1,9 +1,13 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
 
+
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    # @clients = Client.all
+    @clients = Client.by_name(params[:name])
+    .by_needs(params[:needs])
+    .all.order("name ASC, birthyear DESC")
   end
 
   # GET /clients/1 or /clients/1.json
@@ -65,6 +69,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:name, :birthyear, :needs, :startdate, :ref)
+      params.require(:client).permit(:name, :birthyear, :needs, :startdate, ref:[:sex, :telno, :helperkind])
     end
 end

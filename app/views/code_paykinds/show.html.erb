@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paykind:</strong>
+  <%= @code_paykind.paykind %>
+</p>
+
+<p>
+  <strong>Monthlysupport:</strong>
+  <%= @code_paykind.monthlysupport %>
+</p>
+
+<p>
+  <strong>Unitprice:</strong>
+  <%= @code_paykind.unitprice %>
+</p>
+
+<p>
+  <strong>Selfpay:</strong>
+  <%= @code_paykind.selfpay %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @code_paykind.ref %>
+</p>
+
+<%= link_to 'Edit', edit_code_paykind_path(@code_paykind) %> |
+<%= link_to 'Back', code_paykinds_path %>

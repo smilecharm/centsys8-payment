@@ -1,14 +1,19 @@
-<h1>Clients</h1>
-
+<p id="notice"><%= notice %></p>
+<h4><b>내담자(고객)관리</b></h1>
+<%= render 'search', schedule: @schedule %>
+<hr>
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Birthyear</th>
-      <th>Needs</th>
-      <th>Startdate</th>
-      <th>Ref</th>
-      <th colspan="3"></th>
+      <th>내담자명</th>
+      <th>생년</th>
+      <th>나이</th>
+      <th>요구사항</th>
+      <th>시작일</th>
+      <th>Ref(성별)</th>
+      <th>Ref(전화번호)</th>
+      <th>Ref(보호자구분)</th>
+      <th align="center" colspan="3">관리</th>
     </tr>
   </thead>
 
@@ -17,12 +22,19 @@
       <tr>
         <td><%= client.name %></td>
         <td><%= client.birthyear %></td>
+        <td>
+        <% if client.birthyear != "" %>
+        <%= tage = Date.current.year - client.birthyear.to_i + 1  %>
+        <% end %>
+        </td>
         <td><%= client.needs %></td>
         <td><%= client.startdate %></td>
-        <td><%= client.ref %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
-        <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= client.ref['sex'] %></td>
+        <td><%= client.ref['telno'] %></td>
+        <td><%= client.ref['helperkind'] %></td>
+        <td><%= link_to '조회', client %></td>
+        <td><%= link_to '편집', edit_client_path(client) %></td>
+        <td><%= link_to '삭제', client, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +42,8 @@
 
 <br>
 
-<%= link_to 'New Client', new_client_path %>
-<p id="notice"><%= notice %></p>
+<%= link_to '신규 내담자 등록', new_client_path %>
+
+<h5 style="color:red">수정 보안사항</h5>
+<p style="color:red"><b>[CSS]</b> colspan=3인 관리는 align="center"가 먹히지 않음??? 이유를 모르겠음</p>
+<p style="color:red"><b>[기능]</b> 내담자 조회 기능 추가 필요/추가는 쉽게 할 수 있음</p>

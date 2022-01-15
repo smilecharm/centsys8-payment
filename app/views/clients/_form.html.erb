@@ -31,12 +31,15 @@
     <%= form.text_field :startdate %>
   </div>
 
-  <div class="field">
-    <%= form.label :ref %>
-    <%= form.text_field :ref %>
-  </div>
+  <%= form.fields :ref, model: OpenStruct.new(form.object.ref) do |field| %>
+    <%= form.label :성별 %><%#= field.text_field 'sex' %><%= field.select("sex", CodeSex.all.pluck(:sex)) %>
+    <%= form.label :연락처 %><%= field.text_field 'telno' %>
+    <%= form.label :보호자구분 %><%= field.text_field 'helperkind' %>
+  <% end %>
+
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "저장" %>
   </div>
 <% end %>

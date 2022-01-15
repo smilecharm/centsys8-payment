@@ -1,14 +1,15 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /profiles or /profiles.json
   def index
-    if current_user.profile.authority == "su"
+
+    # if current_user.profile.authority == "su"
       @profiles = Profile.all
-    else
-      @profiles = Profile.where(user_id: current_user.id)
-    end
+    # else
+      # @profiles = Profile.where(user_id: current_user.id)
+    # end
 
   end
 
@@ -18,13 +19,18 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    # @profile.user_id = current_user.id
+    # @profile.username = current_user.username
     @profile = Profile.new
-    @profile.user_id = current_user.id
-    @profile.username = current_user.username
   end
 
   # GET /profiles/1/edit
   def edit
+
+    if current_user.profile.authority != "su"
+      @profile.username = current_user.username  
+    end
+
   end
 
   # POST /profiles or /profiles.json

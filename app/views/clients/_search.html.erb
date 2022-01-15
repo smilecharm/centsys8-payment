@@ -1,0 +1,34 @@
+<table>
+  <tr>
+    <td>검색</td>
+    <%= form_tag(clients_path, :method => "get") do %>
+    <td><%= search_field_tag :name, params[:name], placeholder: "내담자명" %>
+    <td><%= search_field_tag  :needs, params[:needs], placeholder: "요구사항" %></td>    
+        <%#= select_tag :counsellor_selector, options_for_select(@conusellors, params[:conusellor]) %>
+    </td>
+    <td><%= button_tag "탐색" %></td>
+    <% end %>
+  </tr>
+</table>
+
+<script>
+  $("#name_selector").on("change",() => {
+    let selected_value = $("#name_selector").val()
+    if(selected_value === "치료사명"){
+      removeParam('name')
+    }else{
+      insertParam('name', selected_value)
+    }
+  })
+
+  $("#needs_selector").on("change",() => {
+    let selected_value = $("#needs_selector").val()
+    if(selected_value === "요구사항"){
+      removeParam('needs')
+    }else{
+      insertParam('needs', selected_value)
+    }
+  })
+</script>
+
+

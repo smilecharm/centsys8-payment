@@ -1,0 +1,42 @@
+<%= form_with(model: code_sex) do |form| %>
+  <% if code_sex.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(code_sex.errors.count, "error") %> prohibited this code_sex from being saved:</h2>
+
+      <ul>
+        <% code_sex.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sex %>
+    <%= form.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.text_field :priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no %>
+    <%= form.text_field :no %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

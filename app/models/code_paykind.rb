@@ -1,0 +1,2 @@
+class CodePaykind < ApplicationRecord
+end

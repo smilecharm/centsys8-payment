@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Code Centers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Priority</th>
+      <th>Telno</th>
+      <th>Address</th>
+      <th>Ref</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @code_centers.each do |code_center| %>
+      <tr>
+        <td><%= code_center.name %></td>
+        <td><%= code_center.priority %></td>
+        <td><%= code_center.telno %></td>
+        <td><%= code_center.address %></td>
+        <td><%= code_center.ref %></td>
+        <td><%= link_to 'Show', code_center %></td>
+        <td><%= link_to 'Edit', edit_code_center_path(code_center) %></td>
+        <td><%= link_to 'Destroy', code_center, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Code Center', new_code_center_path %>

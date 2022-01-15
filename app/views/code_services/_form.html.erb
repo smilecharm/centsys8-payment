@@ -1,0 +1,42 @@
+<%= form_with(model: code_service) do |form| %>
+  <% if code_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(code_service.errors.count, "error") %> prohibited this code_service from being saved:</h2>
+
+      <ul>
+        <% code_service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contents %>
+    <%= form.text_field :contents %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.text_field :priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unitprice %>
+    <%= form.text_field :unitprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

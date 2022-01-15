@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Code Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Contents</th>
+      <th>Priority</th>
+      <th>Unitprice</th>
+      <th>Ref</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @code_services.each do |code_service| %>
+      <tr>
+        <td><%= code_service.name %></td>
+        <td><%= code_service.contents %></td>
+        <td><%= code_service.priority %></td>
+        <td><%= code_service.unitprice %></td>
+        <td><%= code_service.ref %></td>
+        <td><%= link_to 'Show', code_service %></td>
+        <td><%= link_to 'Edit', edit_code_service_path(code_service) %></td>
+        <td><%= link_to 'Destroy', code_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Code Service', new_code_service_path %>

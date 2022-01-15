@@ -1,0 +1,2 @@
+class CodeCenter < ApplicationRecord
+end

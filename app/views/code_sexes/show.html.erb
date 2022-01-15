@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @code_sex.sex %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @code_sex.priority %>
+</p>
+
+<p>
+  <strong>No:</strong>
+  <%= @code_sex.no %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @code_sex.content %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @code_sex.ref %>
+</p>
+
+<%= link_to 'Edit', edit_code_sex_path(@code_sex) %> |
+<%= link_to 'Back', code_sexes_path %>

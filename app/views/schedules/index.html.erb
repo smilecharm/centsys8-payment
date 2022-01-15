@@ -1,6 +1,5 @@
-
-
-<h1>Schedules(<%= current_user.username %>)</h1>
+<p id="notice"><%= notice %></p>
+<h4><b>일정관리(<%= current_user.username %>)<b></h4>
 <%= render 'form', schedule: @schedule %>
 <hr>
 
@@ -13,8 +12,8 @@
       <th align="center">날짜(편집)</th>
       <th align="center">시간(삭제)</th>
       <th align="center">내담자(조회)</th>
-
-      <th align="center">Ref</th>
+      <th align="center">지원(Ref)</th>
+      <th align="center">케이스(Ref)</th
      </tr>
   </thead>
 
@@ -22,20 +21,19 @@
     <% @schedules.each do |schedule| %>
       <tr>
         <td><%= schedule.name %> </td>
-        <td><%= schedule.user.profile.title %> </td>
+        <td><%= schedule.user.profile.title %></td>
+
         <td align="center">
           <%= link_to edit_schedule_path(schedule) do %>
           <%= schedule.date %>
           <% end %>
         </td>
         
-
         <td align="center">
           <%= link_to schedule, method: :delete, data: { confirm: '삭제하시겠습니까?' } do %>
           <%= schedule.time %>
           <% end %>
         </td>
-
 
         <td align="center">
           <%= link_to schedule do %>
@@ -43,7 +41,8 @@
           <% end %>
         </td>
         
-        <td><%= schedule.ref %></td>       
+        <td><%= schedule.ref['paykind'] %></td>       
+        <td><%= schedule.ref['case'] %></td>       
       </tr>
     <% end %>
   </tbody>
@@ -51,12 +50,7 @@
 
 <hr/>
 <%#= link_to 'New Schedule', new_schedule_path %>
-<p id="notice"><%= notice %></p>
-<h3 style="color:red">수정 보안사항</h3>
-<hr>
-<p style="color:red">쉽게 바꾸는 방법은 나중에 찾아보기 일단은 Table로 진행</p>
-<p style="color:red">편집도 나중에는 쓸 수 있게 하고 조회도 넣어 보자</p>
-<p style="color:red">login id 등도 navbar에 넣어도 에러(로그아웃 에러)나지 않게 하자</p>
 
-<p style="color:blue">리스트에서 사실 조회는 필요 없을 듯 함. 나중에 상세조회는 필요할 수 있을수 있음(놔 두자)대신 ID는 빼자</p>
-<p style="color:blue">form field에서 invisible option 사용함</p>
+<h5 style="color:red">수정 보안사항</h5>
+<p style="color:red">[Flexbox]보기 변경 시도</p>
+

@@ -1,15 +1,15 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /schedules or /schedules.json
   def index
     
-    if current_user.profile.authority == "su"
-      @schedules = Schedule.all.order("name ASC, client ASC, date ASC, time ASC")
-    else
+    # if current_user.profile.authority == "su"
+      # @schedules = Schedule.all.order("name ASC, client ASC, date ASC, time ASC")
+    # else
       @schedules = Schedule.where(user_id: current_user.id).order("client ASC, date ASC, time ASC")
-    end
+    # end
 
     @schedule = Schedule.new
     @schedule.user_id = current_user.id
@@ -82,6 +82,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.require(:schedule).permit(:user_id, :name, :client, :date, :time, :ref)
+      params.require(:schedule).permit(:user_id, :name, :client, :date, :time, ref:[:paykind, :case])
     end
 end

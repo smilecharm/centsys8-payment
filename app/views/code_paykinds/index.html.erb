@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Code Paykinds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paykind</th>
+      <th>Monthlysupport</th>
+      <th>Unitprice</th>
+      <th>Selfpay</th>
+      <th>Ref</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @code_paykinds.each do |code_paykind| %>
+      <tr>
+        <td><%= code_paykind.paykind %></td>
+        <td><%= code_paykind.monthlysupport %></td>
+        <td><%= code_paykind.unitprice %></td>
+        <td><%= code_paykind.selfpay %></td>
+        <td><%= code_paykind.ref %></td>
+        <td><%= link_to 'Show', code_paykind %></td>
+        <td><%= link_to 'Edit', edit_code_paykind_path(code_paykind) %></td>
+        <td><%= link_to 'Destroy', code_paykind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Code Paykind', new_code_paykind_path %>

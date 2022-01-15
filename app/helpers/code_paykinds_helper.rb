@@ -1,0 +1,2 @@
+module CodePaykindsHelper
+end

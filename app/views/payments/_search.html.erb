@@ -1,0 +1,23 @@
+<%= form_with(model: payment) do |form| %>
+
+  <table>
+    <tr>
+      <td><%= form.label :치료사 %></td>
+      <td><%#= form.text_field :client, value:"홍길동", :size=> "4", :style => 'text-align: center' %>
+      <%= form.select("user", User.all.pluck(:username).sort, :size=> "4", :style => 'text-align: center') %>
+      </td>
+      <td><%= form.label :내담자 %></td>
+      <td><%= form.select("client", Client.all.pluck(:name).sort, :size=> "4", :style => 'text-align: center') %></td>
+      
+
+      <td><%= form.label :yearmonth %></td>
+      <td><%#= form.text_field :yearmonth, value:"2021/01", :size=> "6", :style => 'text-align: center' %>
+      <%= form.month_field :yearmonth, value:"2021/01", :size=> "6", :style => 'text-align: center' %>
+      </td>
+
+      <td><%= form.submit "예약 회기 조회" %></td>
+    </tr>
+  </table>
+
+<% end %>
+<hr>

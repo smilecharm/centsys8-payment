@@ -1,0 +1,42 @@
+<%= form_with(model: code_paykind) do |form| %>
+  <% if code_paykind.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(code_paykind.errors.count, "error") %> prohibited this code_paykind from being saved:</h2>
+
+      <ul>
+        <% code_paykind.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :paykind %>
+    <%= form.text_field :paykind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthlysupport %>
+    <%= form.text_field :monthlysupport %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unitprice %>
+    <%= form.text_field :unitprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :selfpay %>
+    <%= form.text_field :selfpay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

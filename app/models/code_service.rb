@@ -1,0 +1,2 @@
+class CodeService < ApplicationRecord
+end

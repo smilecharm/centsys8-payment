@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @code_service.name %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @code_service.contents %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @code_service.priority %>
+</p>
+
+<p>
+  <strong>Unitprice:</strong>
+  <%= @code_service.unitprice %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @code_service.ref %>
+</p>
+
+<%= link_to 'Edit', edit_code_service_path(@code_service) %> |
+<%= link_to 'Back', code_services_path %>

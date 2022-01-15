@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @code_center.name %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @code_center.priority %>
+</p>
+
+<p>
+  <strong>Telno:</strong>
+  <%= @code_center.telno %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @code_center.address %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @code_center.ref %>
+</p>
+
+<%= link_to 'Edit', edit_code_center_path(@code_center) %> |
+<%= link_to 'Back', code_centers_path %>

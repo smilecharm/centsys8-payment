@@ -1,0 +1,2 @@
+class CodeSex < ApplicationRecord
+end
