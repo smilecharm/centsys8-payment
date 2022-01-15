@@ -3,7 +3,12 @@ class PaymentsController < ApplicationController
 
   # GET /payments or /payments.json
   def index
-    @schedules = Schedule.all
+    @schedules = Schedule
+    .where(client: params[:client])
+    .selecte("id,
+      count(id) as reservation_count,
+      name")
+    .group("name")
 
     @payments = Payment.all.order("date DESC")
   end
