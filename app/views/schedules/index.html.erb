@@ -2,7 +2,8 @@
 <h4><b>일정관리(<%= current_user.username %>)<b></h4>
 <%= render 'form', schedule: @schedule %>
 <hr>
-
+<%= render 'search', schedule: @schedule %>
+<hr>
 <table>
   <thead>
     <tr>
@@ -12,6 +13,8 @@
       <th align="center">날짜(편집)</th>
       <th align="center">시간(삭제)</th>
       <th align="center">내담자(조회)</th>
+
+      <th align="center">datet(Ref)</th>
       <th align="center">지원(Ref)</th>
       <th align="center">케이스(Ref)</th
      </tr>
@@ -21,7 +24,7 @@
     <% @schedules.each do |schedule| %>
       <tr>
         <td><%= schedule.name %> </td>
-        <td><%= schedule.user.profile.title %></td>
+        <td><%#= schedule.user.profile.title %></td>
 
         <td align="center">
           <%= link_to edit_schedule_path(schedule) do %>
@@ -40,8 +43,17 @@
           <%= schedule.client %>
           <% end %>
         </td>
-        
-        <td><%= schedule.ref['paykind'] %></td>       
+
+      <%# schedule.ref['datet'] = 
+      DateTime.parse("#{schedule.date} #{schedule.time}").to_datetime
+      %>
+
+      <% schedule.ref['datet'] = 
+      ("#{schedule.date} #{schedule.time}").to_datetime
+      %>
+
+        <td><%= schedule.ref['datet'] %></td>       
+        <td><%= schedule.ref['paykind'] %></td>                 
         <td><%= schedule.ref['case'] %></td>       
       </tr>
     <% end %>

@@ -2,15 +2,29 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: %i[ show edit update destroy ]
 
   # GET /payments or /payments.json
+
+  # date_object = Time.current
+  # .where(date_time: date_object.beginning_of_month..date_object.end_of_month)
+
   def index
+
     @schedules = Schedule
-    .where(client: params[:client])
-    .selecte("id,
-      count(id) as reservation_count,
-      name")
-    .group("name")
+                   .select("schedules.*,
+                            count(id) as reservation_count")
+                   .group(:name, :client)
+                   .order("client ASC, name ASC")
+                  
 
     @payments = Payment.all.order("date DESC")
+    @payment = Payment.new
+
+    # @payments = Payment
+    #               .all
+    #               .select("payments.*,
+    #                        count(case when method = '신용카드' then id end) as card_count,
+    #                        count(case when method = '현금' then id end) as cash_count,
+    #                        sum(payamount) as amount_sum")
+
   end
 
   # GET /payments/1 or /payments/1.json
@@ -20,6 +34,7 @@ class PaymentsController < ApplicationController
   # GET /payments/new
   def new
     @payment = Payment.new
+
   end
 
   # GET /payments/1/edit

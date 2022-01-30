@@ -1,0 +1,47 @@
+<table>
+  <tr>
+    <td>검색</td>
+    <%= form_tag(schedules_path, :method => "get") do %>
+    <td><%= search_field_tag :name, params[:name], placeholder: "치료사명" %>
+    <td><%= search_field_tag  :client, params[:client], placeholder: "내담자명" %></td>    
+    <td><%= search_field_tag  :yearmonth, params[:yearmonth], placeholder: "해당월" %></td>    
+
+        <%#= select_tag :counsellor_selector, options_for_select(@conusellors, params[:conusellor]) %>
+    </td>
+    <td><%= button_tag "탐색" %></td>
+    <% end %>
+  </tr>
+</table>
+
+<script>
+  $("#name_selector").on("change",() => {
+    let selected_value = $("#name_selector").val()
+    if(selected_value === "치료사명"){
+      removeParam('name')
+    }else{
+      insertParam('name', selected_value)
+    }
+  })
+
+  $("#client_selector").on("change",() => {
+    let selected_value = $("#client_selector").val()
+    if(selected_value === "내담자명"){
+      removeParam('client')
+    }else{
+      insertParam('client', selected_value)
+    }
+  })
+
+
+  $("#yearmonth_selector").on("change",() => {
+    let selected_value = $("#yearmonth_selector").val()
+    if(selected_value === "해당연월"){
+      removeParam('yearmonth')
+    }else{
+      insertParam('yearmonth', selected_value)
+    }
+  })
+
+</script>
+
+

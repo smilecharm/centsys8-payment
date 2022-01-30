@@ -7,7 +7,7 @@ class CreatePayments < ActiveRecord::Migration[6.1]
       t.string :method
       t.string :date
       t.string :memo
-      t.json :ref
+      t.json :ref, default: '{}'
 
       t.timestamps
     end

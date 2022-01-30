@@ -1,0 +1,2 @@
+class CodeNewor < ApplicationRecord
+end

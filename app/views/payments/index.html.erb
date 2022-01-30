@@ -1,56 +1,37 @@
 <p id="notice"><%= notice %></p>
 <h4><b>결제관리<b></h4>
-<%= render 'search', payment: @payment %>
 
-
+<%= render 'search_schedule', schedule: @schedule %>
 
 <table>
-  <tr>
-    <td>내담자</td>
-    <td align="center">치료</td>
-    <td>치료사</td>
-    <td>해당연월</td>
-    <td>예약회기</td>
-    <td>이월회기</td>
-    <td>미수회기</td>
-    <td>결제회기</td>
-    <td>지원종류</td>
-    <td>단가</td>
-    <td>1회 자부담</td>
-    <td>결제금액</td>
-    <td>상세조회</td>
-  </tr>
-  <tr>
-    <td>홍길동</td>
-    <td>놀이치료</td>
-    <td>이미정</td>
-    <td>2020/01</td>
-    <td align="center">4</td>
-    <td align="center">1</td>
-    <td align="center">0</td>
-    <td align="center">3</td>
-    <td>아청2800</td>
-    <td align="right">45,000</td>
-    <td align="right">7,000</td>
-    <td align="right">21,000</td>
-    <td><button>상세조회</button></td>
-  </tr>
-  <tr>
-    <td>홍길동</td>
-    <td>언어치료</td>
-    <td>이정숙</td>
-    <td>2020/01</td>
-    <td align="center">4</td>
-    <td align="center">0</td>
-    <td align="center">1</td>
-    <td align="center">5</td>
-    <td>자비</td>
-    <td align="right">45,000</td>
-    <td align="right">45,000</td>
-    <td align="right">225,000</td>
-    <td><button>상세조회</button></td>
-  </tr>
+  <thead>
+    <tr>
+      <th>내담자명</th>
+      <th>치료</th>
+      <th>치료사(id)</th>
+      <th>예약횟기</th>
+      <th>이월횟기</th>
+      <th>미수횟기</th>
+      <th>결제횟기</th>
+      <th>지원종류</th>
+      <th>단가</th>
+      <th>1회 자부담</th>
+      <th>결제금액</th>
+      <th>상세조회</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @schedules.each do |schedule| %>
+    <tr>
+      <td><%= schedule.client %></td>
+      <td></td>
+      <td><%= schedule.name %>(<%= schedule.id %>)</td>
+      <td align="center"><%= schedule.reservation_count %></td>
+    </tr>
+  </tbody>
+  <% end %>
 </table>
+
 <hr>
 <%= render 'input', payment: @payment %>
 
@@ -60,9 +41,7 @@
       <th>내담자</th>
       <th>해당연월</th>
       <th>결제액</th>
-
-      <th>예약회기</th>
-      
+      <th>예약회기</th>      
       <th>지불방법</th>
       <th>날짜</th>
       <th>메모</th>
@@ -77,9 +56,7 @@
         <td><%= payment.client %></td>
         <td><%= payment.yearmonth %></td>
         <td><%= payment.payamount %></td>
-
         <td align="center">4회기</td>
-
         <td><%= payment.method %></td>
         <td><%= payment.date %></td>
         <td><%= payment.memo %></td>
@@ -93,6 +70,5 @@
 </table>
 
 <br>
-
 <%= link_to 'New Payment', new_payment_path %>
 

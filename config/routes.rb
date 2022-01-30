@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :code_newors
   resources :code_services
   resources :code_centers
   resources :code_paykinds

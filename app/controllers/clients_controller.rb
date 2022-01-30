@@ -7,7 +7,8 @@ class ClientsController < ApplicationController
     # @clients = Client.all
     @clients = Client.by_name(params[:name])
     .by_needs(params[:needs])
-    .all.order("name ASC, birthyear DESC")
+    .all
+    .order("name ASC, birthyear DESC")
   end
 
   # GET /clients/1 or /clients/1.json
@@ -69,6 +70,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:name, :birthyear, :needs, :startdate, ref:[:sex, :telno, :helperkind])
+      params.require(:client).permit(:name, :birthyear, :needs, :startdate, ref:[:sex, :telno, :helperkind, :newor])
     end
 end

@@ -35,9 +35,8 @@
     <%= form.label :성별 %><%#= field.text_field 'sex' %><%= field.select("sex", CodeSex.all.pluck(:sex)) %>
     <%= form.label :연락처 %><%= field.text_field 'telno' %>
     <%= form.label :보호자구분 %><%= field.text_field 'helperkind' %>
+    <%= form.label :신규구분 %><%#= field.text_field 'newor' %><%= field.select("newor", CodeNewor.all.pluck(:name)) %>
   <% end %>
-
-
 
   <div class="actions">
     <%= form.submit "저장" %>

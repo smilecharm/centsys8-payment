@@ -8,13 +8,20 @@ class SchedulesController < ApplicationController
     # if current_user.profile.authority == "su"
       # @schedules = Schedule.all.order("name ASC, client ASC, date ASC, time ASC")
     # else
-      @schedules = Schedule.where(user_id: current_user.id).order("client ASC, date ASC, time ASC")
+      @schedules = Schedule
+      .by_name(params[:name])
+      .by_client(params[:client])
+      .by_yearmonth(params[:yearmonth])
+      .order("name ASC, date ASC, time ASC")
+      # .where(user_id: current_user.id)
     # end
 
     @schedule = Schedule.new
     @schedule.user_id = current_user.id
     @schedule.name = current_user.username
+
   end
+
 
   def index_authority
     return if current_user&.role == 'admin'
@@ -30,6 +37,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new
     @schedule.user_id = current_user.id
     @schedule.name = current_user.username
+
   end
 
   # GET /schedules/1/edit
@@ -39,6 +47,7 @@ class SchedulesController < ApplicationController
   # POST /schedules or /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
+    # @schedule.ref['datet'] = ("#{schedule.date} #{schedule.time}").to_datetime
 
     respond_to do |format|
       if @schedule.save
@@ -82,6 +91,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.require(:schedule).permit(:user_id, :name, :client, :date, :time, ref:[:paykind, :case])
+      params.require(:schedule).permit(:user_id, :name, :client, :date, :time, ref:[:datet, :paykind, :case])
     end
 end

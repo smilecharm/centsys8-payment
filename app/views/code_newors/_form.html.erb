@@ -1,0 +1,37 @@
+<%= form_with(model: code_newor) do |form| %>
+  <% if code_newor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(code_newor.errors.count, "error") %> prohibited this code_newor from being saved:</h2>
+
+      <ul>
+        <% code_newor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.text_field :priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ref %>
+    <%= form.text_field :ref %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

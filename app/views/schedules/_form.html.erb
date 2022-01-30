@@ -37,8 +37,6 @@
       <td><%= form.label :시간 %></td>
       <td><%= form.time_field :time, :size=> "4" %></td>
       
-      <%#= form.label :ref %>
-      <%#= form.text_field :ref %>
       
       <%= form.fields :ref, model: OpenStruct.new(form.object.ref) do |field| %>
         <td><%= form.label :지원 %><%# field.text_field 'paykind', :size=> "3" %>

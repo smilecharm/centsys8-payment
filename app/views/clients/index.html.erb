@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>신규/기존(ref)</th>
       <th>내담자명</th>
       <th>생년</th>
       <th>나이</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @clients.each do |client| %>
       <tr>
+        <td><%= client.ref['newor'] %></td>
         <td><%= client.name %></td>
         <td><%= client.birthyear %></td>
         <td>
