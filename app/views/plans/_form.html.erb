@@ -20,7 +20,7 @@
     <td><%#= form.text_field :service %><%= form.select("service", CodeService.all.pluck(:name).sort) %></td>
 
     <td><%= form.label :요일 %></td>
-    <td><%#= form.text_field :weekday %><%= form.select("weekday", CodeWeekday.all.pluck(:name)) %></td>
+    <td><%#= form.text_field :weekday %><%= form.select("weekday", @priority_weeks) %></td>
 
     <td><%= form.label :시간 %></td>
     <td><%= form.time_select :time %></td>

@@ -27,10 +27,10 @@ class Schedule < ApplicationRecord
 
   scope :by_yearmonth, lambda { |value|
     if value.present?
-      # where(counsellor: value)
-      where('yearmonth like ?',"%#{value}%")
+      data_params_object = Date.parse(value + "-01")
+      where(date: data_params_object.beginning_of_month..data_params_object.end_of_month)
     else
-      all
+      where({})
     end
   }
 

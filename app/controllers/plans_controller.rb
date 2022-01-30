@@ -5,6 +5,8 @@ class PlansController < ApplicationController
   def index
     @plans = Plan.all
     @plan = Plan.new
+
+    @priority_weeks = CodeWeekday.all.order(:priority).pluck(:name)
   end
 
   # GET /plans/1 or /plans/1.json

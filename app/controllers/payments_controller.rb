@@ -11,10 +11,11 @@ class PaymentsController < ApplicationController
     @schedules = Schedule
                    .select("schedules.*,
                             count(id) as reservation_count")
+                   .by_client(params[:client])
+                   .by_yearmonth(params[:yearmonth])
                    .group(:name, :client)
                    .order("client ASC, name ASC")
                   
-
     @payments = Payment.all.order("date DESC")
     @payment = Payment.new
 
