@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Code Weekdays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Priority</th>
+      <th>Content</th>
+      <th>Ref</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @code_weekdays.each do |code_weekday| %>
+      <tr>
+        <td><%= code_weekday.name %></td>
+        <td><%= code_weekday.priority %></td>
+        <td><%= code_weekday.content %></td>
+        <td><%= code_weekday.ref %></td>
+        <td><%= link_to 'Show', code_weekday %></td>
+        <td><%= link_to 'Edit', edit_code_weekday_path(code_weekday) %></td>
+        <td><%= link_to 'Destroy', code_weekday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Code Weekday', new_code_weekday_path %>

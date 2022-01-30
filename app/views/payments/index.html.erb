@@ -6,6 +6,7 @@
 <table>
   <thead>
     <tr>
+      <th>해당월</th>
       <th>내담자명</th>
       <th>치료</th>
       <th>치료사(id)</th>
@@ -23,6 +24,7 @@
   <tbody>
   <% @schedules.each do |schedule| %>
     <tr>
+      <td align="center"><%#= schedule.ref['datet'].year %>/<%#= schedule.ref['datet'].month %></td>
       <td><%= schedule.client %></td>
       <td></td>
       <td><%= schedule.name %>(<%= schedule.id %>)</td>

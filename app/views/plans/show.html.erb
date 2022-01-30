@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @plan.client %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @plan.service %>
+</p>
+
+<p>
+  <strong>Weekday:</strong>
+  <%= @plan.weekday %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @plan.time %>
+</p>
+
+<p>
+  <strong>Paykind:</strong>
+  <%= @plan.paykind %>
+</p>
+
+<p>
+  <strong>Unitprice:</strong>
+  <%= @plan.unitprice %>
+</p>
+
+<p>
+  <strong>Support:</strong>
+  <%= @plan.support %>
+</p>
+
+<p>
+  <strong>Selfprice:</strong>
+  <%= @plan.selfprice %>
+</p>
+
+<p>
+  <strong>Exp:</strong>
+  <%= @plan.exp %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @plan.ref %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

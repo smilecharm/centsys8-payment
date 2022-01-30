@@ -15,6 +15,8 @@
       <th align="center">내담자(조회)</th>
 
       <th align="center">datet(Ref)</th>
+      <th align="center">yearMonth(Ref)</th>
+
       <th align="center">지원(Ref)</th>
       <th align="center">케이스(Ref)</th
      </tr>
@@ -44,15 +46,9 @@
           <% end %>
         </td>
 
-      <%# schedule.ref['datet'] = 
-      DateTime.parse("#{schedule.date} #{schedule.time}").to_datetime
-      %>
-
-      <% schedule.ref['datet'] = 
-      ("#{schedule.date} #{schedule.time}").to_datetime
-      %>
-
-        <td><%= schedule.ref['datet'] %></td>       
+        <% schedule.ref['datet'] = ("#{schedule.date} #{schedule.time}").to_datetime %>
+        <td><%= schedule.ref['datet'].strftime("%Y/%m/%d") %></td>       
+        <td align="center"><%= schedule.ref['datet'].year %>/<%= schedule.ref['datet'].month %></td>       
         <td><%= schedule.ref['paykind'] %></td>                 
         <td><%= schedule.ref['case'] %></td>       
       </tr>

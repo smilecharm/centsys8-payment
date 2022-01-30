@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_005514) do
+ActiveRecord::Schema.define(version: 2022_01_16_052609) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -80,6 +80,15 @@ ActiveRecord::Schema.define(version: 2022_01_16_005514) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "code_weekdays", force: :cascade do |t|
+    t.string "name"
+    t.string "priority"
+    t.string "content"
+    t.json "ref", default: "{}"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "payments", force: :cascade do |t|
     t.string "client"
     t.string "yearmonth"
@@ -87,6 +96,21 @@ ActiveRecord::Schema.define(version: 2022_01_16_005514) do
     t.string "method"
     t.string "date"
     t.string "memo"
+    t.json "ref"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string "client"
+    t.string "service"
+    t.string "weekday"
+    t.time "time"
+    t.string "paykind"
+    t.integer "unitprice"
+    t.integer "support"
+    t.integer "selfprice"
+    t.string "exp"
     t.json "ref"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,0 +1,2 @@
+module CodeWeekdaysHelper
+end

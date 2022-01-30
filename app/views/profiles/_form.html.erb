@@ -11,42 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+  <table>
+    <tr>
+      <td><%= form.label :user_id %></td>
+      <td><%= form.text_field :user_id %></td>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
+      <td><%= form.label :username %></td>
+      <td><%= form.text_field :username %></td>
+          
+      <td><%= form.label :authority %></td>
+      <td><%= form.text_field :authority %></td>
+          
+      <td><%= form.label :title %></td>
+      <td><%= form.text_field :title %></td>
+          
+      <td><%= form.label :role %></td>
+      <td><%= form.text_field :role %></td>
+</tr>
+</tr>          
+      <td><%= form.label :salarycondition %></td>
+      <td><%= form.text_field :salarycondition %></td>
+          
+      <td><%= form.label :ref %></td>
+      <td><%= form.text_field :ref %></td>
+          
+      <td><%= form.submit %></td>
 
-  <div class="field">
-    <%= form.label :authority %>
-    <%= form.text_field :authority %>
-  </div>
+    </tr>
+  </table>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+      <div class="actions">
+        
+      </div>
 
-  <div class="field">
-    <%= form.label :role %>
-    <%= form.text_field :role %>
-  </div>
-
-  <div class="field">
-    <%= form.label :salarycondition %>
-    <%= form.text_field :salarycondition %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ref %>
-    <%= form.text_field :ref %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

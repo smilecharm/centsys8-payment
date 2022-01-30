@@ -1,0 +1,59 @@
+<%= form_with(model: plan) do |form| %>
+  <% if plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plan.errors.count, "error") %> prohibited this plan from being saved:</h2>
+
+      <ul>
+        <% plan.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+  <tr>
+    <td><%= form.label :내담자 %></td>
+    <td><%#= form.text_field :client %><%= form.select("client", Client.all.pluck(:name).sort) %></td>
+
+    <td><%= form.label :치료서비스 %></td>
+    <td><%#= form.text_field :service %><%= form.select("service", CodeService.all.pluck(:name).sort) %></td>
+
+    <td><%= form.label :요일 %></td>
+    <td><%#= form.text_field :weekday %><%= form.select("weekday", CodeWeekday.all.pluck(:name)) %></td>
+
+    <td><%= form.label :시간 %></td>
+    <td><%= form.time_select :time %></td>
+  </tr>
+
+  <tr>
+    <td><%= form.label :지원 %></td>
+    <td><%#= form.text_field :paykind %><%= form.select("paykind", CodePaykind.all.pluck(:paykind)) %></td>
+
+    <td><%= form.label :단가 %></td>
+    <td><%= form.number_field :unitprice %></td>
+
+    <td><%= form.label :지원금 %></td>
+    <td><%= form.number_field :support %></td>
+
+    <td><%= form.label :자부담비 %></td>
+    <td><%= form.number_field :selfprice %></td>
+  </tr>
+
+  <tr>
+    <td><%= form.label :추가설명 %></td>
+    <td colspan="3"><%= form.text_field :exp, :size=>"40", placeholder: "추가 설명(option)" %></td>
+
+    <td><%= form.label :ref %></td>
+    <td><%= form.text_field :ref %></td>
+
+    <td></td>
+    <td><%= form.submit "치료계획 저장" %></td>
+
+  </tr>
+</table>
+
+  <div class="actions">
+    
+  </div>
+<% end %>

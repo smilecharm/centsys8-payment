@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :plans
+  resources :code_weekdays
   resources :code_newors
   resources :code_services
   resources :code_centers

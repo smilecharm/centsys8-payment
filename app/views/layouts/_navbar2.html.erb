@@ -28,6 +28,7 @@
         <div class="dropdown-menu sm-menu alert-warning">          
           <a class="dropdown-item" href="#">접수관리</a>
           <a class="dropdown-item" href="/clients">고객관리</a>       
+          <a class="dropdown-item" href="#">고객등록카드</a>       
         </div>
       </li>
 
@@ -42,9 +43,9 @@
           일정소통 & 치료계획
         </a>
         <div class="dropdown-menu sm-menu alert-info">          
+          <a class="dropdown-item" href="/plans">치료계획</a>       
           <a class="dropdown-item" href="/schedules">일정관리</a>
-          <a class="dropdown-item" href="#">소통관리</a>       
-          <a class="dropdown-item" href="#">치료계획</a>       
+          <a class="dropdown-item" href="#">일정변경관리</a>       
         </div>  
       </li>
 
@@ -60,6 +61,7 @@
         </a>
         <div class="dropdown-menu sm-menu alert-danger">          
           <a class="dropdown-item" href="/payments">결제관리</a>
+          <a class="dropdown-item" href="#">전자바우처결제등록</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">급여정산</a>       
           <a class="dropdown-item" href="#">비용정산</a>       
@@ -78,16 +80,16 @@
           등록세팅
         </a>
         <div class="dropdown-menu sm-menu alert-success">          
-          <a class="dropdown-item" href="/profiles">사용자 등록</a>
-          <a class="dropdown-item" href="/code_paykinds">지원 등록</a>    
-          <a class="dropdown-item" href="#">서비스료 등록</a>    
+          <a class="dropdown-item" href="/profiles">사용자 등록</a>  
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">전자바우처 자동등록</a>
+          <a class="dropdown-item" href="#">전자바우처 엑셀 업로드</a>
           <a class="dropdown-item" href="#">엑셀 업로드/다운로드</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/code_centers">수익센터코드 등록</a>
           <a class="dropdown-item" href="/code_services">서비스코드 등록</a>
+          <a class="dropdown-item" href="/code_paykinds">지원 등록</a>              
           <a class="dropdown-item" href="/code_newors">신규코드 등록</a>
+          <a class="dropdown-item" href="/code_weekdays">요일코드 등록</a>
           <a class="dropdown-item" href="/code_sexes">성별코드 등록</a>
         </div>         
       </li>
@@ -109,8 +111,26 @@
           <a class="dropdown-item" href="/boards">개발보드</a>
         </div>          
       </li>
-    </ul>
 
+      <li class="nav-item menu">
+        <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+            |  
+        </a>
+      </li>
+
+      <li class="nav-item dropdown dmenu">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          보고서 및 지표관리
+        </a>
+        <div class="dropdown-menu sm-menu">          
+          <a class="dropdown-item" href="#">지원별 인원</a>
+          <a class="dropdown-item" href="#">출석율</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">비용비율</a>
+        </div>          
+      </li>
+
+    </ul>
     <%# <span class="navbar-text">
       <a class="nav-link" href="#">관련링크</a>      
     </span> %>

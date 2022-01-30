@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     # else
       # @profiles = Profile.where(user_id: current_user.id)
     # end
-
+    @profile = Profile.new
   end
 
   # GET /profiles/1 or /profiles/1.json
@@ -52,7 +52,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to profile_url(@profile), notice: "Profile was successfully updated." }
+        format.html { redirect_to profiles_path, notice: "Profile was successfully updated." }
         format.json { render :show, status: :ok, location: @profile }
       else
         format.html { render :edit, status: :unprocessable_entity }
