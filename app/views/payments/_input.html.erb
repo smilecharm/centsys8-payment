@@ -22,7 +22,9 @@
 
       <td><%= form.label :method %></td>
       <td><%#= form.text_field :method %>
-      <%= form.select("method", CodePaymethod.all.pluck(:name).sort) %></td>
+      <%#= form.select("method", CodePaymethod.all.pluck(:name).sort) %>
+      <%= form.select("weekday", @priority_paymethods) %>
+      </td>
 
       <td><%= form.label :memo %></td>
       <td><%= form.text_field :memo %></td>

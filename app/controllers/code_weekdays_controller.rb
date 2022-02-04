@@ -3,7 +3,7 @@ class CodeWeekdaysController < ApplicationController
 
   # GET /code_weekdays or /code_weekdays.json
   def index
-    @code_weekdays = CodeWeekday.all
+    @code_weekdays = CodeWeekday.all.order("priority ASC")
   end
 
   # GET /code_weekdays/1 or /code_weekdays/1.json

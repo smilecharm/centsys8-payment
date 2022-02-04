@@ -3,7 +3,7 @@ class CodePaymethodsController < ApplicationController
 
   # GET /code_paymethods or /code_paymethods.json
   def index
-    @code_paymethods = CodePaymethod.all
+    @code_paymethods = CodePaymethod.all.order("priority ASC")
   end
 
   # GET /code_paymethods/1 or /code_paymethods/1.json

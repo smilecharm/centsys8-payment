@@ -3,7 +3,7 @@ class CodeCentersController < ApplicationController
 
   # GET /code_centers or /code_centers.json
   def index
-    @code_centers = CodeCenter.all
+    @code_centers = CodeCenter.all.order("priority ASC")
   end
 
   # GET /code_centers/1 or /code_centers/1.json

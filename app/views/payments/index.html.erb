@@ -46,6 +46,9 @@
 
 <hr>
 <%= render 'input', payment: @payment %>
+<%#= render 'search', payment: @payment %>
+<p style="color:red">아래 테이블에는 해당 내담자의 최근 3개월치만 보여 주면 좋을 듯 함</p>
+<p style="color:red">[Error] 아래 삭제 클릭이 조회로 바뀌어져 버림. 삭제가 되지 않음> 모두가 그러함</p>
 
 <table>
   <thead>
@@ -63,24 +66,29 @@
   </thead>
 
   <tbody>
+
     <% @payments.each do |payment| %>
-      <tr>
-        <td><%= payment.client %></td>
-        <td><%= payment.yearmonth %></td>
-        <td><%= payment.payamount %></td>
-        <td align="center">4회기</td>
-        <td><%= payment.method %></td>
-        <td><%= payment.date %></td>
-        <td><%= payment.memo %></td>
-        <td><%= payment.ref %></td>
-        <td><%= link_to '조회', payment %></td>
-        <td><%= link_to '편집', edit_payment_path(payment) %></td>
-        <td><%= link_to '삭제', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    
+      <% if payment.client == @client_fined %>
+        <tr>
+          <td><%= payment.client %></td>
+          <td><%= payment.yearmonth %></td>
+          <td><%= payment.payamount %></td>
+          <td align="center">4회기</td>
+          <td><%= payment.method %></td>
+          <td><%= payment.date %></td>
+          <td><%= payment.memo %></td>
+          <td><%= payment.ref %></td>
+          <td><%= link_to '조회', payment %></td>
+          <td><%= link_to '편집', edit_payment_path(payment) %></td>
+          <td><%= link_to '삭제', payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% else %>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Payment', new_payment_path %>
+<%#= link_to 'New Payment', new_payment_path %>
 

@@ -3,7 +3,7 @@ class CodeServicesController < ApplicationController
 
   # GET /code_services or /code_services.json
   def index
-    @code_services = CodeService.all
+    @code_services = CodeService.all.order("priority ASC")
   end
 
   # GET /code_services/1 or /code_services/1.json

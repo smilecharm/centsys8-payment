@@ -19,6 +19,7 @@ class PaymentsController < ApplicationController
     @payments = Payment.all.order("date DESC")
     @payment = Payment.new
 
+    @priority_paymethods = CodePaymethod.all.order(:priority).pluck(:name)
   end
 
   # GET /payments/1 or /payments/1.json
