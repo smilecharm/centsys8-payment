@@ -19,13 +19,6 @@ class PaymentsController < ApplicationController
     @payments = Payment.all.order("date DESC")
     @payment = Payment.new
 
-    # @payments = Payment
-    #               .all
-    #               .select("payments.*,
-    #                        count(case when method = '신용카드' then id end) as card_count,
-    #                        count(case when method = '현금' then id end) as cash_count,
-    #                        sum(payamount) as amount_sum")
-
   end
 
   # GET /payments/1 or /payments/1.json

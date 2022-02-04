@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :code_paymethods
   resources :members
   resources :plans
   resources :code_weekdays

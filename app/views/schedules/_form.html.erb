@@ -29,13 +29,22 @@
       </td>
 
       <td><%= form.label :내담자명 %></td>
-      <td><%#= form.text_field :client %><%= form.select("client", Client.all.pluck(:name).sort) %></td>
+      <td>
+        <%#= form.text_field :client %>
+        <%= form.select("client", Client.all.pluck(:name).sort) %>
+      </td>
 
       <td><%= form.label :날짜 %></td>
-      <td><%= form.date_field :date, :size=> "6" %></td>
+      <td>
+        <%#= form.date_field :date, :size=> "6" %>
+        <%= form.text_field :date, :size=> "6" %>
+      </td>
 
       <td><%= form.label :시간 %></td>
-      <td><%= form.time_field :time, :size=> "4" %></td>
+      <td>
+        <%#= form.time_field :time, :size=> "4" %>
+        <%= form.text_field :time, :size=> "4" %>
+      </td>
       
       
       <%= form.fields :ref, model: OpenStruct.new(form.object.ref) do |field| %>

@@ -3,7 +3,7 @@
     <td>검색</td>
     <%= form_tag(payments_path, :method => "get") do %>
 
-      <%# <td><%= search_field_tag :yearmonth, params[:yearmonth], placeholder: "해당월" %> %>
+      <%# search_field_tag :yearmonth, params[:yearmonth], placeholder: "해당월" %> 
       <td><%= search_field_tag :client, params[:client], placeholder: "내담자명" %>
       <td><%= month_field_tag :yearmonth, params[:yearmonth] %></td>
       

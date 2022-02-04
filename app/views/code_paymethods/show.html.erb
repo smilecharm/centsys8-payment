@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @code_paymethod.name %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @code_paymethod.priority %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @code_paymethod.content %>
+</p>
+
+<p>
+  <strong>Memo:</strong>
+  <%= @code_paymethod.memo %>
+</p>
+
+<p>
+  <strong>Ref:</strong>
+  <%= @code_paymethod.ref %>
+</p>
+
+<%= link_to 'Edit', edit_code_paymethod_path(@code_paymethod) %> |
+<%= link_to 'Back', code_paymethods_path %>

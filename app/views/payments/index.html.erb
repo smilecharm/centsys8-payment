@@ -21,17 +21,27 @@
       <th>상세조회</th>
     </tr>
   </thead>
+
+<%# 연월 및 내담자 이름이 없으면 아래 빈 공간 처리 %>
+
   <tbody>
-  <% @schedules.each do |schedule| %>
-    <tr>
-      <td align="center"><%#= schedule.ref['datet'].year %>/<%#= schedule.ref['datet'].month %></td>
-      <td><%= schedule.client %></td>
-      <td></td>
-      <td><%= schedule.name %>(<%= schedule.id %>)</td>
-      <td align="center"><%= schedule.reservation_count %></td>
-    </tr>
-  </tbody>
-  <% end %>
+<% if (params[:client] == "") and (params[:yearmonth] == "") %> 
+  <% else %>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td align="center"><%#= schedule.ref['datet'].year %>/<%#= schedule.ref['datet'].month %></td>
+        <td><%= schedule.client %></td>
+        <% @client_fined = schedule.client %>
+        <td></td>
+        <td><%= schedule.name %>(<%= schedule.id %>)</td>
+        <td align="center">
+          <%= schedule.reservation_count %>
+          <% @case_fined = schedule.reservation_count %>
+        </td>
+      </tr>
+    </tbody>
+    <% end %>
+<% end %>
 </table>
 
 <hr>

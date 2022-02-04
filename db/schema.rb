@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_30_074906) do
+ActiveRecord::Schema.define(version: 2022_02_04_074236) do
 
   create_table "boards", force: :cascade do |t|
     t.string "title"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 2022_01_30_074906) do
     t.string "unitprice"
     t.string "selfpay"
     t.json "ref", default: "{}"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "code_paymethods", force: :cascade do |t|
+    t.string "name"
+    t.string "priority"
+    t.string "content"
+    t.string "memo"
+    t.json "ref"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

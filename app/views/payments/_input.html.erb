@@ -2,21 +2,27 @@
   <table>
     <tr>
       <td><%= form.label :client %></td>
-      <td><%= form.text_field :client %></td>
+      <td>
+        <%#= form.text_field :client, :value => params[:client] %>
+        <%= form.text_field :client, :value => @client_fined %>
+      </td>
 
       <td><%= form.label :yearmonth %></td>
-      <td><%= form.text_field :yearmonth %></td>
+      <td><%= form.text_field :yearmonth, :value => params[:yearmonth] %>
+      <%#= form.text_field :yearmonth, :placeholder => params[:yearmonth] %></td>
 
       <td><%= form.label :payamount %></td>
-      <td><%= form.text_field :payamount %></td>
+      <td><%= form.text_field :payamount, 
+      :value => number_to_currency(@case_fined.to_i * 45000, unit: "￦", delimiter: ',', precision: 0) %></td>
 
     </tr>
     <tr>
       <td><%= form.label :date %></td>
-      <td><%= form.text_field :date %></td>
+      <td><%= form.date_field :date %></td>
 
       <td><%= form.label :method %></td>
-      <td><%= form.text_field :method %></td>
+      <td><%#= form.text_field :method %>
+      <%= form.select("method", CodePaymethod.all.pluck(:name).sort) %></td>
 
       <td><%= form.label :memo %></td>
       <td><%= form.text_field :memo %></td>
