@@ -22,6 +22,19 @@ class SchedulesController < ApplicationController
 
   end
 
+  def daily
+      @schedules = Schedule
+      .by_name(params[:name])
+      .by_client(params[:client])
+      .by_yearmonth(params[:yearmonth])
+      .order("name ASC, date ASC, time ASC")
+    @schedule = Schedule.new
+    @schedule.user_id = current_user.id
+    @schedule.name = current_user.username
+
+  end
+
+
 
   def index_authority
     return if current_user&.role == 'admin'

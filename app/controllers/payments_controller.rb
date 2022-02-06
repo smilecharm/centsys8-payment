@@ -7,7 +7,6 @@ class PaymentsController < ApplicationController
   # .where(date_time: date_object.beginning_of_month..date_object.end_of_month)
 
   def index
-
     @schedules = Schedule
                    .select("schedules.*,
                             count(id) as reservation_count")
@@ -22,6 +21,11 @@ class PaymentsController < ApplicationController
     @priority_paymethods = CodePaymethod.all.order(:priority).pluck(:name)
   end
 
+  def recordsch
+  end
+
+  def voucher
+  end
   # GET /payments/1 or /payments/1.json
   def show
   end

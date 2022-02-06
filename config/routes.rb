@@ -17,5 +17,10 @@ Rails.application.routes.draw do
 
   resources :schedules
   get '/' => 'schedules#index'
+  get '/daily' => 'schedules#daily'
+
+  get '/excelupdown' => 'updowns#excelupdown'
+  get '/voucher' => 'payments#voucher'
+  get '/recordsch' => 'payments#recordsch'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

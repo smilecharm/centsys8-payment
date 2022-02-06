@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<% hwday = ["일", "월", "화","수", "목","금","토"] %>
+<h4 align="center"><b>오늘의 일정(<%= Time.now.strftime("%Y년 %m월 %d일") %>
+<%= hwday[Time.now.wday] %>요일)<b></h4>
+
+<table align="center" width="90%" border="1">
+  <thead>
+    <tr>
+      <td align="center" bgcolor="yellow">시간/치료사</td>
+      <td align="center" bgcolor="yellow">소장님</td>
+      <td align="center" bgcolor="yellow">놀이샘</td>
+      <td align="center" bgcolor="yellow">미술샘</td>
+      <td align="center" bgcolor="yellow">언어샘</td>
+      <td align="center" bgcolor="yellow">인지샘</td>
+      <td align="center" bgcolor="yellow">감통샘</td>
+      <td align="center" bgcolor="yellow">상담샘</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center" bgcolor="yellow">10:00</td>
+      <td align="center">내담자1</td>
+      <td align="center"></td>
+      <td align="center">내담자3</td>
+      <td align="center"></td>
+      <td align="center">내담자5</td>
+      <td align="center"></td>            
+      <td align="center">내담자7</td>        
+    </tr>
+    <tr>
+      <td align="center" bgcolor="yellow">12:00</td>
+      <td align="center"></td>
+      <td align="center">내담자3</td>
+      <td align="center"></td>
+      <td align="center"></td>
+      <td align="center">내담자6</td>            
+      <td align="center">내담자7</td>
+      <td align="center"></td>  
+    </tr>  
+    <tr>
+      <td align="center" bgcolor="yellow">14:00</td>
+      <td align="center">내담자3</td>
+      <td align="center"></td>
+      <td align="center">내담자5</td>
+      <td align="center">내담자6</td>            
+      <td align="center"></td>
+      <td align="center">내담자1</td> 
+      <td align="center">내담자2</td> 
+    </tr> 
+    <tr>
+      <td align="center" bgcolor="yellow">16:00</td>
+      <td align="center"></td>
+      <td align="center">내담자5</td>
+      <td align="center">내담자6</td>            
+      <td align="center"></td>
+      <td align="center">내담자1</td>
+      <td align="center">내담자2</td>
+      <td align="center"></td>        
+    </tr> 
+    <tr>
+      <td align="center" bgcolor="yellow">18:00</td>
+      <td align="center"></td>
+      <td align="center"></td>            
+      <td align="center">내담자7</td>
+      <td align="center"></td>  
+      <td align="center">내담자2</td>
+      <td align="center"></td>
+      <td align="center">내담자4</td>
+    </tr>               
+  </tbody>  
+</table>
+
+<br>
+<hr>
+

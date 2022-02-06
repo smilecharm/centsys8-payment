@@ -1,25 +1,160 @@
-<h2 align="center"><%= link_to '희망찬 센터관리 시스템', '/schedules' %></h2>
-<div class="flex center">
-  <table style="width: 99%" align="center">
-    <tr>
-      <td width="90"><%= link_to '접수&고객관리', '/clients' %></td>
-      <td>|</td>
-      <td width="120"><%= link_to '일정소통&치료계획', '/schedules' %></td>
-      <td>|</td>
-      <td width="70"><%= link_to '결제&급여', '/payments' %></td>
-      <td>|</td>
-      <td width="120"><%= link_to '등록세팅&자료실', '/profiles' %></td>
-      <td>|</td>
-      <td width="120"><%= link_to '개발보드', '/boards' %></td>
-    </tr>
-  </table>
-<hr>
+<div class="py-1" align="center">
+  <b>희망찬심리발달센터 관리시스템-CenterSys8: 결제모듈개발</b>    
+</div>
+
 <% if user_signed_in? %>
-  <p align="right">
-    사용자:<%= current_user.username %>(IDno:<%= current_user.id %>)|
-    <a href="/users/sign_out" data-method="delete">LogOut</a>
+  <p align="right"> 안녕하세요? <a href="/users/edit"><%= current_user.username %></a>님 |<%#= current_user.id %>
+    
+    <a href="/users/sign_out" data-method="delete">[로그아웃]</a>
+    <%= link_to "log-out", destroy_user_session_path, :method => :delete %>
+    <%= button_to "log-out", destroy_user_session_path, :method => :delete %>
   </p>
-  <%#= link_to("비밀번호 변경", edit_my_passwords_path) %><%#= link_to("탈퇴", edit_my_resigns_path) %>
+  <%#= link_to("비밀번호 변경", edit_my_passwords_path) %>
+  <%#= link_to("탈퇴", edit_my_resigns_path) %>
 <% end %>
 
+<div align="center"><!-- 왜 Align이 되지 않을까?  --> 
+  <nav class="navbar navbar-expand-sm   navbar-light bg-light">
+    
+    <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> %>
 
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item dropdown dmenu alert-warning">
+          <a class="nav-link dropdown-toggle" href="/clients" id="navbardrop" data-toggle="dropdown">
+            접수 & 고객관리
+          </a>
+
+          <div class="dropdown-menu sm-menu alert-warning">          
+            <a class="dropdown-item" href="#">접수관리</a>
+            <a class="dropdown-item" href="/clients">고객관리</a>       
+            <a class="dropdown-item" href="#">고객등록카드</a>       
+          </div>
+        </li>
+
+        <li class="nav-item menu">
+          <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+              |  
+          </a>
+        </li>
+
+        <li class="nav-item dropdown dmenu alert-info">
+          <a class="nav-link dropdown-toggle" href="/daily" id="navbardrop" data-toggle="dropdown">
+            일정소통 & 치료계획
+          </a>
+          <div class="dropdown-menu sm-menu alert-info">          
+            <a class="dropdown-item" href="/plans">치료계획</a>       
+            <a class="dropdown-item" href="/schedules">일정관리</a>
+            <a class="dropdown-item" href="/daily">오늘의 일정</a>
+            <a class="dropdown-item" href="#">일정변경관리</a>       
+          </div>  
+        </li>
+
+        <li class="nav-item menu">
+          <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+              |  
+          </a>
+        </li>
+
+        <li class="nav-item dropdown dmenu alert-danger">
+          <a class="nav-link dropdown-toggle" href="/payments?client=&yearmonth=&button=" id="navbardrop" data-toggle="dropdown">
+            결제 & 급여
+          </a>
+          <div class="dropdown-menu sm-menu alert-danger">          
+            <a class="dropdown-item" href="/payments?client=&yearmonth=&button=">결제관리</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/recordsch">청구일정 조회/Download</a>
+            <a class="dropdown-item" href="/voucher">전자바우처결제 Upload</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">급여정산</a>       
+            <a class="dropdown-item" href="#">비용정산</a>       
+            <a class="dropdown-item" href="#">월정산</a>       
+          </div>
+        </li>
+
+        <li class="nav-item menu">
+          <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+              |  
+          </a>
+        </li>
+
+        <li class="nav-item dropdown dmenu alert-success">
+          <a class="nav-link dropdown-toggle" href="/excelupdown" id="navbardrop" data-toggle="dropdown">
+            등록세팅
+          </a>
+          <div class="dropdown-menu sm-menu alert-success">          
+            <a class="dropdown-item" href="/profiles">사용자 등록</a>  
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/excelupdown">엑셀 업로드/다운로드</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/code_centers">수익센터코드</a>
+            <a class="dropdown-item" href="/code_services">서비스코드</a>
+            <a class="dropdown-item" href="/code_paykinds">지원코드</a>
+            <a class="dropdown-item" href="/code_paymethods">결제코드</a>
+            <a class="dropdown-item" href="#">비용코드</a>                  
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/code_newors">신규코드</a>
+            <a class="dropdown-item" href="/code_weekdays">요일코드</a>
+            <a class="dropdown-item" href="/code_sexes">성별코드</a>
+          </div>         
+        </li>
+
+        <li class="nav-item menu">
+          <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+              |  
+          </a>
+        </li>
+
+        <li class="nav-item dropdown dmenu alert-secondary">
+          <a class="nav-link dropdown-toggle" href="/boards" id="navbardrop" data-toggle="dropdown">
+            게시판
+          </a>
+          <div class="dropdown-menu sm-menu alert-secondary">          
+            <a class="dropdown-item" href="#">센타자료</a>
+            <a class="dropdown-item" href="#">관련Links</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/boards">개발보드</a>
+          </div>          
+        </li>
+
+        <li class="nav-item menu">
+          <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown">
+              |  
+          </a>
+        </li>
+
+        <li class="nav-item dropdown dmenu">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            보고서 및 지표관리
+          </a>
+          <div class="dropdown-menu sm-menu">          
+            <a class="dropdown-item" href="#">지원별 인원</a>
+            <a class="dropdown-item" href="#">출석율</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">비용비율</a>
+          </div>          
+        </li>
+
+      </ul>
+      <%# <span class="navbar-text">
+        <a class="nav-link" href="#">관련링크</a>      
+      </span> %>
+    </div>  
+  </nav>
+  <%# <hr> %>
+
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+  $('.navbar-light .dmenu').hover(function () {
+          $(this).find('.sm-menu').first().stop(true, true).slideDown(150);
+      }, function () {
+          $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
+      });
+  });
+</script>
