@@ -25,8 +25,7 @@
 <%# 연월 및 내담자 이름이 없으면 아래 빈 공간 처리 %>
 
   <tbody>
-<% if (params[:client] == "") and (params[:yearmonth] == "") %> 
-  <% else %>
+<% if (params[:client] != "") and (params[:yearmonth] != "") %> 
     <% @schedules.each do |schedule| %>
       <tr>
         <td align="center"><%#= schedule.ref['datet'].year %>/<%#= schedule.ref['datet'].month %></td>
@@ -40,7 +39,7 @@
         </td>
       </tr>
     </tbody>
-    <% end %>
+  <% end %>
 <% end %>
 </table>
 

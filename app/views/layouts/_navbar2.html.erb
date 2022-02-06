@@ -3,9 +3,11 @@
 </div>
 
 <% if user_signed_in? %>
-  <p align="right"> 안녕하세요? <%= current_user.username %>님 |<%#= current_user.id %>
-    <a href="/users/edit">p/w변경</a> |
+  <p align="right"> 안녕하세요? <a href="/users/edit"><%= current_user.username %></a>님 |<%#= current_user.id %>
+    
     <a href="/users/sign_out" data-method="delete">[로그아웃]</a>
+    <%= link_to "log-out", destroy_user_session_path, :method => :delete %>
+    <%= button_to "log-out", destroy_user_session_path, :method => :delete %>
   </p>
   <%#= link_to("비밀번호 변경", edit_my_passwords_path) %>
   <%#= link_to("탈퇴", edit_my_resigns_path) %>
@@ -45,6 +47,7 @@
         <div class="dropdown-menu sm-menu alert-info">          
           <a class="dropdown-item" href="/plans">치료계획</a>       
           <a class="dropdown-item" href="/schedules">일정관리</a>
+          <a class="dropdown-item" href="#">오늘의 일정</a>
           <a class="dropdown-item" href="#">일정변경관리</a>       
         </div>  
       </li>
@@ -82,8 +85,9 @@
         <div class="dropdown-menu sm-menu alert-success">          
           <a class="dropdown-item" href="/profiles">사용자 등록</a>  
           <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">엑셀 업로드</a>
+          <a class="dropdown-item" href="#">엑셀 다운로드</a>
           <a class="dropdown-item" href="#">전자바우처 엑셀 업로드</a>
-          <a class="dropdown-item" href="#">엑셀 업로드/다운로드</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="/code_centers">수익센터코드 등록</a>
           <a class="dropdown-item" href="/code_services">서비스코드 등록</a>
