@@ -74,3 +74,79 @@
 <br>
 <hr>
 
+<table>
+  <thead>
+    <tr>
+      <th align="center">Array</th>
+      <th align="center">시간</th>
+      <th align="center">치료사</th>
+      <th>치료사</th>
+      <th align="center">schToday(0)</th>
+      <th align="center">schToday(1)</th>
+     </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td align="center">
+          <%= schedule.time %>
+        </td>
+
+        <td><%= schedule.name %> </td>
+
+        <td align="center">
+          <%= schedule.client %>
+        </td>
+
+      </tr>      
+    <% end %>
+  </tbody>
+</table>
+
+        
+<hr><br>
+<h5>오늘의 미결제자</h5>
+<p>내담자1</p>
+<p><font color="red">오늘의 미결제자 오늘의 일정 테이블에 표시하여 링크되도록...</font></p>
+
+<hr>
+<% abcd = [] %>
+<% abcd = Array.new %>
+<% abcd.push 2 %>
+<% abcd << 5 %>
+<%= abcd[0] %>
+<%= abcd[1] %>
+<hr>
+<% abcd = [[],[],[]] %>
+<% abcd = Array.new %>
+<% abcd.push [2,3,4] %>
+<% abcd << [4,5,6] %>
+<%= abcd[0] %>
+<%= abcd[1] %>
+<br>
+<hr>
+
+  <% i = 0 %>
+  <% @schedules.each do |schedule| %>
+  <% i = i + 1 %>
+    <%= i %>
+    <%= schedule.time %>
+    <%= schedule.name %>
+    <%= schedule.client %> <br> 
+  
+    <% @j = i %>
+  <% end %>
+  <hr>
+  
+  <%= @j %> <br>
+ 
+  <%# abcd = [[],[],[]] %>
+  <% abcd = Array.new %>
+  <% @schedules.each do |schedule| %>
+    <% abcd.push [schedule.time, schedule.name, schedule.client] %>
+  <% end %>
+
+  <%= abcd[0] %> <br>
+  <%= abcd[1] %> <br>
+

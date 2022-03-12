@@ -27,10 +27,10 @@ class SchedulesController < ApplicationController
       .by_name(params[:name])
       .by_client(params[:client])
       .by_yearmonth(params[:yearmonth])
-      .order("name ASC, date ASC, time ASC")
+      .order("time ASC, name ASC, client ASC")
     @schedule = Schedule.new
-    @schedule.user_id = current_user.id
-    @schedule.name = current_user.username
+    # @schedule.user_id = current_user.id
+    # @schedule.name = current_user.username
 
   end
 

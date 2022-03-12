@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   resources :schedules
-  get '/' => 'schedules#index'
+  get '/' => 'schedules#daily'
   get '/daily' => 'schedules#daily'
 
   get '/excelupdown' => 'updowns#excelupdown'
